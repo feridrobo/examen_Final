@@ -1,6 +1,8 @@
 package dao;
 
-import com.cursojava.curso.models.Usuario;
+
+
+import models.Usuario;
 
 import java.util.List;
 

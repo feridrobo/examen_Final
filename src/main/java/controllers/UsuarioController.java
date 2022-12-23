@@ -1,9 +1,10 @@
 package controllers;
 
-import com.cursojava.curso.dao.UsuarioDao;
-import com.cursojava.curso.models.Usuario;
+
+import dao.UsuarioDao;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
+import models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import utils.JWTUtil;
