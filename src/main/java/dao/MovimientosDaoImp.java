@@ -24,11 +24,13 @@ public class MovimientosDaoImp implements MovimientosDao{
         return entityManager.createQuery(query).getResultList();
     }
 
-    @Override
-    public Optional<Persona> listarId(int id) {
-
-        return data.findById(id);
+    public Movimiento listarId(long id) {
+        String query = "FROM Movimiento m WHERE m.id = :id";
+        return entityManager.createQuery(query, Movimiento.class)
+                .setParameter("id", id)
+                .getSingleResult();
     }
+
 
     @Override
     public void eliminar(Long id) {

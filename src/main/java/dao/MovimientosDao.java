@@ -14,7 +14,7 @@ public interface MovimientosDao {
 
     void guardar(Movimiento movimiento);
 
-     Optional<Movimiento> listarId(int id);
+    Movimiento listarId(long id);
 
     Usuario obtenerUsuarioPorCredenciales(Usuario usuario);
 }
