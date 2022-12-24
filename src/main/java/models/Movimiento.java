@@ -2,37 +2,39 @@ package models;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import lombok.ToString;
+
+import java.util.Date;
 
 
 @Entity
 @Table(name = "Movimientos")
+@Data
 @ToString
 @EqualsAndHashCode
 public class Movimiento {
-
-
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    @Column(name = "")
-    private Long id;
+    @SequenceGenerator(name="bill_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="bill_id_seq")
+    private Integer id;
 
-    @Getter @Setter @Column(name = "nombre")
-    private String nombre;
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private Usuario usuario;
 
-    @Getter @Setter @Column(name = "fecha")
-    private String apellido;
+    @Column(name = "date_bill")
+    private Date dateBill;
 
-    @Getter @Setter @Column(name = "descripcion")
-    private String email;
+    @Column(name = "value")
+    private int value;
 
-    @Getter @Setter @Column(name = "valor")
-    private String telefono;
+    @Column(name = "type")
+    private int type;
 
+    @Column(name = "observation")
+    private String observation;
 
 }
+
 
